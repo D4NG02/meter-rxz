@@ -44,7 +44,7 @@ export default function Gauge() {
         )
     }
     const Backgorund = () => {
-        const backgroundArc = arc()
+        const backgroundOuter = arc()
                             .outerRadius(0.98)
                             .innerRadius(0)
                             .startAngle(0)
@@ -52,7 +52,9 @@ export default function Gauge() {
                             .cornerRadius(0)
                             ()
         return (
-            <path d={backgroundArc} fill="#131313" />
+            <>
+                <path d={backgroundOuter} fill="#131313" />
+            </>
         )
     }
 
@@ -70,19 +72,9 @@ export default function Gauge() {
 
                 
                 <Rpm classname="rpm" value={randomNumber2} max={12000} />
+                <Speed />
                 <Petrol classname="petrol" value={randomNumber} max={100} colorStart="#ff4400" colorEnd="#4ffc45" />
             </svg>
-
-            <Speed />
-
-            <div style={{
-                marginInlineStart: '0.4em',
-                fontFeatureSettings: "'zero', 'tnum' 1",
-            }}>
-                <span style={{ fontSize: "2em", }}>
-                    { format("")(randomNumber2) }
-                </span>
-            </div>
         </>
     )
 }
