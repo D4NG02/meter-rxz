@@ -1,5 +1,4 @@
 import React,  { useState, useEffect } from "react"
-import { format } from "d3-format"
 import { arc } from "d3-shape"
 
 import Petrol from "./Petrol"
