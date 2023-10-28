@@ -1,6 +1,4 @@
 import React,  { useState, useEffect } from 'react'
-import { Box } from '@mui/material';
-import { format } from "d3-format"
 
 export default function Speed() {
     const [speed, setSpeed] = useState(0);
@@ -17,10 +15,11 @@ export default function Speed() {
         generateRandomSpeed()
     }, [] )
     return (
-        <Box>
-            <h1 style={{ fontSize: "6em", }}>
-                { format("")(speed) }
-            </h1>
-        </Box>
+        <>
+            {String(speed).length==3 && <text style={{ transform: 'translate(-14%, 7%)', fill: 'white', fontSize: '0.022em' }}>{speed}</text>}
+            {String(speed).length==2 && <text style={{ transform: 'translate(-9%, 7%)', fill: 'white', fontSize: '0.022em' }}>{speed}</text>}
+            {String(speed).length==1 && <text style={{ transform: 'translate(-4%, 7%)', fill: 'white', fontSize: '0.022em' }}>{speed}</text>}
+            <text style={{ transform: 'translate(-4%, 14%)', fill: 'white', fontSize: '0.005em' }}>km/h</text>
+        </>
     )
 }
