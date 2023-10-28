@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { arc } from "d3-shape"
 import { scaleLinear } from "d3-scale"
 
-const Rpm = ({ value, min=0, max }) => {               
+const Rpm = () => {               
     // Border
     const Border = () => {
         const color = "#5c5e5e"
@@ -29,57 +29,7 @@ const Rpm = ({ value, min=0, max }) => {
             </>
         )
     }
-                                
-    // Value
-    const percentScale = scaleLinear()
-                                .domain([min, max])
-                                .range([0, 1])
-    const percent = percentScale(value)
-    const angleScale = scaleLinear()
-                                .domain([0, 1])
-                                .range([-Math.PI, 0.48*Math.PI])
-                                .clamp(true)
-    const angle = angleScale(percent)
-    const filledArc = arc()
-                                .outerRadius(0.91)
-                                .innerRadius(0.90)
-                                .startAngle(-Math.PI)
-                                .endAngle(angle)
-                                .cornerRadius(1)
-                                ()
-                           
-    // Needle
-    const Needle = () => {
-        const nobeArc = arc()
-                                    .outerRadius(0.52)
-                                    .innerRadius(0.5)
-                                    .startAngle(-Math.PI - 0.06)
-                                    .endAngle(0.48*Math.PI + 0.06)
-                                    .cornerRadius(1)
-                                    ()
-        const needleArc = arc()
-                                    .outerRadius(0.88)
-                                    .innerRadius(0.5)
-                                    .startAngle(angle -0.014)
-                                    .endAngle(angle +0.014)
-                                    .cornerRadius(1)
-                                    ()
-        const needleArc2 = arc()
-                                    .outerRadius(0.52)
-                                    .innerRadius(0.5)
-                                    .startAngle(angle -0.2)
-                                    .endAngle(angle +0.2)
-                                    .cornerRadius(1)
-                                    () 
-        return (
-            <>
-                <path d={nobeArc} fill="#5c5e5e" />
-                <path d={needleArc} fill="url(#rpm_gradient)" />
-                <path d={needleArc2} fill="url(#rpm_gradient)" />
-            </>
-        )
-    }
-
+                
                                 
     // Ticker
     const Ticker = (props) => {
@@ -97,33 +47,8 @@ const Rpm = ({ value, min=0, max }) => {
         )
     }
 
-    // Gradient
-    const colorScale = scaleLinear()
-                                .domain([0, 1])
-                                .range(["#ffb499", "#ff4400"])
-    const gradientSteps = colorScale.ticks(100)
-                                .map(value => colorScale(value))
-
     return (
         <>
-            <defs>
-                <linearGradient
-                    id="rpm_gradient"
-                    gradientUnits="userSpaceOnUse"
-                    x1="0" y1="1" x2="1" y2="-1">
-                    {gradientSteps.map((color, index) => (
-                        <stop
-                            key={index}
-                            stopColor={color}
-                            offset={`${
-                                index
-                                / (gradientSteps.length - 1)
-                                }`}
-                        />
-                    ))}
-                </linearGradient>
-            </defs>
-
             {/* Ticker and number */}
             <Ticker radius={0.9} start={-Math.PI +0.015} end={-2.768} color="#5c5e5e" />
             <Ticker radius={0.9} start={-2.74} end={-2.38} color="#5c5e5e" />
@@ -152,15 +77,6 @@ const Rpm = ({ value, min=0, max }) => {
             <text style={{ transform: 'translate(34%, 0%)', fill: 'white', fontSize: '0.01em' }}>12</text>
 
             <Border />
-            
-            <Needle />
-            
-            <path d={filledArc} fill="url(#rpm_gradient)" />
-            {String(value).length==5 && <text style={{ transform: 'translate(-5.5%, 33%)', fill: 'white', fontSize: '0.005em' }}>{value}</text>}
-            {String(value).length==4 && <text style={{ transform: 'translate(-4.4%, 33%)', fill: 'white', fontSize: '0.005em' }}>{value}</text>}
-            {String(value).length==3 && <text style={{ transform: 'translate(-3.3%, 33%)', fill: 'white', fontSize: '0.005em' }}>{value}</text>}
-            {String(value).length==2 && <text style={{ transform: 'translate(-2.5%, 33%)', fill: 'white', fontSize: '0.005em' }}>{value}</text>}
-            {String(value).length==1 && <text style={{ transform: 'translate(-1.3%, 33%)', fill: 'white', fontSize: '0.005em' }}>{value}</text>}
         </>
     )
 }

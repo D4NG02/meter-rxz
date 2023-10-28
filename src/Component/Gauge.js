@@ -1,78 +1,42 @@
-import React,  { useState, useEffect } from "react"
-import { arc } from "d3-shape"
+import React from "react"
+import *  as d3 from 'd3'
 
 import Petrol from "./Petrol"
 import Rpm from "./Rpm";
 import Speed from "./Speed";
+import RPM2 from "./RPM2";
+import Petrol2 from "./Petrol2";
 
 export default function Gauge() {
-    const [randomNumber, setRandomNumber] = useState(0);
-    const [randomNumber2, setRandomNumber2] = useState(0);
-  
-    const generateRandomNumber = () => {
-        const min = 0;
-        const max = 100;
-        const random =
-            Math.floor(Math.random() * (max - min + 1)) + min;
-        setRandomNumber(random);
-    };
-    const generateRandomNumber2 = () => {
-        const min = 0;
-        const max = 12000;
-        const random =
-            Math.floor(Math.random() * (max - min + 1)) + min;
-        setRandomNumber2(random);
-    };
-  
-    useEffect(() => {
-        generateRandomNumber()
-        generateRandomNumber2()
-    }, [] )
-
-
-    const Border = () => {
-        const borderArc = arc()
-                            .outerRadius(1)
-                            .innerRadius(0.98)
-                            .startAngle(0)
-                            .endAngle(2*Math.PI)
-                            .cornerRadius(0)
-                            ()
-        return (
-            <path d={borderArc} fill="#717171" />
-        )
-    }
-    const Backgorund = () => {
-        const backgroundOuter = arc()
-                            .outerRadius(0.98)
-                            .innerRadius(0)
-                            .startAngle(0)
-                            .endAngle(2*Math.PI)
-                            .cornerRadius(0)
-                            ()
-        return (
-            <>
-                <path d={backgroundOuter} fill="#131313" />
-            </>
-        )
-    }
-
+    const borderArc = d3.arc()
+                        .outerRadius(1)
+                        .innerRadius(0.98)
+                        .startAngle(0)
+                        .endAngle(2*Math.PI)
+                        .cornerRadius(0)
+                        ()
+        
+    const backgroundOuter = d3.arc()
+                        .outerRadius(0.98)
+                        .innerRadius(0)
+                        .startAngle(0)
+                        .endAngle(2*Math.PI)
+                        .cornerRadius(0)
+                        ()
+        
     return (
         <>
-            <svg style={{overflow: "visible"}}
-                height="20em"
-                viewBox={[
-                    -1, -1,
-                    2, 2,
-                ].join(" ")}>
+            <svg height="20em" viewBox={[ -1, -1, 2, 2 ].join(" ")}>
                 
-                <Border />
-                <Backgorund />
+                <path d={borderArc} fill="#717171" />
+                <path d={backgroundOuter} fill="rgba(19, 19, 19, 0.7)" />
 
                 
-                <Rpm classname="rpm" value={randomNumber2} max={12000} />
+                <Rpm />
+                <RPM2 />
                 <Speed />
-                <Petrol classname="petrol" value={randomNumber} max={100} colorStart="#ff4400" colorEnd="#4ffc45" />
+                <Petrol />
+                <Petrol2 />
             </svg>
         </>
     )

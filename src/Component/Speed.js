@@ -20,9 +20,6 @@ export default function Speed() {
             {String(speed).length==2 && <text style={{ transform: 'translate(-9%, 7%)', fill: 'white', fontSize: '0.022em' }}>{speed}</text>}
             {String(speed).length==1 && <text style={{ transform: 'translate(-4%, 7%)', fill: 'white', fontSize: '0.022em' }}>{speed}</text>}
             <text style={{ transform: 'translate(-4%, 14%)', fill: 'white', fontSize: '0.005em' }}>km/h</text>
-            
-            {/* <line x1="-1" x2="1" y1="0" y2="0" stroke="white" strokeWidth="0.01" /> */}
-            {/* <line x1="0" x2="0" y1="1" y2="-1" stroke="white" strokeWidth="0.01" /> */}
         </>
     )
 }
