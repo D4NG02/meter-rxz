@@ -1,20 +1,26 @@
-import React,  { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function Speed() {
     const [speed, setSpeed] = useState(0);
-  
-    const generateRandomSpeed = () => {
-        const min = 0;
-        const max = 200;
-        const random =
-            Math.floor(Math.random() * (max - min + 1)) + min;
-            setSpeed(random);
-    };
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(assignPosition);
+        } else {
+            console.log("Geolocation is not supported by this browser.")
+        }
+    }
+    function assignPosition(position) {
+        if(position.coords.speed) {
+            setSpeed(position.coords.speed)
+        } else {
+            setSpeed(0)
+        }
+    }
     
     useEffect(() => {
         const interval = setInterval(() => {
-            generateRandomSpeed()
-        }, 1000);
+            getLocation()
+        }, 500);
     
         return () => clearInterval(interval);
     }, [] ) 
