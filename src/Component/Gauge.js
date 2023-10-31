@@ -10,7 +10,7 @@ export default function Gauge() {
     const backgroundRPM = d3.arc()
                         .outerRadius(1)
                         .innerRadius(0.6)
-                        .startAngle(0.5*Math.PI)
+                        .startAngle(0.46*Math.PI)
                         .endAngle(-1*Math.PI)
                         .cornerRadius(0)
                         ()
@@ -20,7 +20,7 @@ export default function Gauge() {
                             .innerRadius(props.inner)
                             .startAngle(props.start)
                             .endAngle(props.end)
-                            .cornerRadius(0)
+                            .cornerRadius(1)
                             ()
         return (
             <path d={tickArc} fill={props.color} />
@@ -42,6 +42,7 @@ export default function Gauge() {
 
                 {/* RPM */}
                 <path d={backgroundRPM} fill="rgba(19, 19, 19, 0.7)" />
+                <line x1="0.01" x2="0.01" y1="0.6" y2="1" stroke="rgba(19, 19, 19, 0.7)" strokeWidth="0.02" />
                 <TickerRPM start={1.018*Math.PI} end={1.022*Math.PI} inner={0.86} color="white" /> {/* 0 */}
                 <TickerRPM start={1.076*Math.PI} end={1.08*Math.PI} inner={0.9} color="white" /> {/* 500 */}
                 <TickerRPM start={1.133*Math.PI} end={1.137*Math.PI} inner={0.86} color="white" />  {/* 1000 */}
@@ -67,9 +68,6 @@ export default function Gauge() {
                 <TickerRPM start={2.284*Math.PI} end={2.287*Math.PI} inner={0.86} color="rgb(176, 14, 10)" />    {/* 11000 */}
                 <TickerRPM start={2.34*Math.PI} end={2.344*Math.PI} inner={0.9} color="rgb(176, 14, 10)" />    {/* 11500 */}
                 <TickerRPM start={2.398*Math.PI} end={2.402*Math.PI} inner={0.86} color="rgb(176, 14, 10)" />    {/* 12000 */}
-                <RPM />
-                {/* <TickerRPM start={0.238*Math.PI} end={0.35*Math.PI} color="#ff4400" /> */}
-                {/* <TickerRPM start={0.36*Math.PI} end={0.48*Math.PI} color="#ff4400" /> */}
                 <text style={{ transform: 'translate(-5%, 42%)', fill: 'white', fontSize: '0.01em' }}>0</text>
                 <text style={{ transform: 'translate(-18%, 39%)', fill: 'white', fontSize: '0.01em' }}>1</text>
                 <text style={{ transform: 'translate(-30%, 31%)', fill: 'white', fontSize: '0.01em' }}>2</text>
@@ -80,15 +78,19 @@ export default function Gauge() {
                 <text style={{ transform: 'translate(-22%, -30%)', fill: 'white', fontSize: '0.01em' }}>7</text>
                 <text style={{ transform: 'translate(-9.5%, -35%)', fill: 'white', fontSize: '0.01em' }}>8</text>
                 <text style={{ transform: 'translate(4.6%, -35%)', fill: 'white', fontSize: '0.01em' }}>9</text>
-                <text style={{ transform: 'translate(16%, -30%)', fill: 'white', fontSize: '0.01em' }}>10</text>
-                <text style={{ transform: 'translate(27%, -21%)', fill: 'white', fontSize: '0.01em' }}>11</text>
-                <text style={{ transform: 'translate(33%, -9%)', fill: 'white', fontSize: '0.01em' }}>12</text>
+                <text style={{ transform: 'translate(16%, -30%)', fill: 'rgb(176, 14, 10)', fontSize: '0.01em' }}>10</text>
+                <text style={{ transform: 'translate(27%, -21%)', fill: 'rgb(176, 14, 10)', fontSize: '0.01em' }}>11</text>
+                <text style={{ transform: 'translate(33%, -9%)', fill: 'rgb(176, 14, 10)', fontSize: '0.01em' }}>12</text>
+                <RPM />
                 
-                <Speed />
-
                 {/* Petrol */}
                 <path d={backgroundPetrolArc} fill="#5c5e5e" />
                 <Petrol />
+
+                {/* Speedo */}
+                <line x1="0.08" x2="0.84" y1="0.78" y2="0.78" stroke="rgba(176, 14, 10, 0.7)" strokeWidth="0.5" />
+                <Speed />
+                {/* <text style={{ transform: 'translate(10%, 48%)', fill: 'rgb(19, 19, 19)', fontSize: '0.005em' }}>km/h</text> */}
             </svg>
         </>
     )
