@@ -35,7 +35,7 @@ export default function RPM() {
                             .innerRadius(0.6)
                             .startAngle(angle -0.006)
                             .endAngle(angle +0.006)
-                            .cornerRadius(0)
+                            .cornerRadius(1)
                             ()
     const nodeArc = arc()
                             .outerRadius(0.61)
