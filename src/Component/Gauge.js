@@ -5,6 +5,7 @@ import { arc } from "d3-shape"
 import Speed from "./Speed";
 import RPM from "./RPM";
 import Petrol from "./Petrol";
+import Clock from "./Clock";
 
 export default function Gauge() {
     const backgroundRPM = d3.arc()
@@ -39,6 +40,7 @@ export default function Gauge() {
     return (
         <>
             <svg height="20em" viewBox={[ -1, -1, 2, 2 ].join(" ")}>
+                <Clock />
 
                 {/* RPM */}
                 <path d={backgroundRPM} fill="rgba(19, 19, 19, 0.7)" />
@@ -90,7 +92,6 @@ export default function Gauge() {
                 {/* Speedo */}
                 <line x1="0.08" x2="0.84" y1="0.78" y2="0.78" stroke="rgba(176, 14, 10, 0.7)" strokeWidth="0.5" />
                 <Speed />
-                {/* <text style={{ transform: 'translate(10%, 48%)', fill: 'rgb(19, 19, 19)', fontSize: '0.005em' }}>km/h</text> */}
             </svg>
         </>
     )
