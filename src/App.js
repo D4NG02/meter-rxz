@@ -1,19 +1,13 @@
 import React from "react"
-import WebFont from 'webfontloader';
 import { Box } from "@mui/material";
+import logo from "./Asset/Capture.png"
 
 import Gauge from "./Component/Gauge";
 // import Indicator from "./Component/Indicator";
 
-WebFont.load({
-  google: {
-    families: ['Oswald', 'sans-serif']
-  }
-});
 function App() {
-
   return (
-    <Box className="App" sx={{ display: 'flex', height: '100%', alignItems: 'center', padding: '0 20px', fontFamily: 'Oswald' }}>
+    <Box className="App" sx={{ display: 'flex', height: '100%', alignItems: 'center', padding: '0 20px', fontFamily: 'Oswald', backgroundImage: 'url(' +logo+ ')' }}>
       <Gauge />
       {/* {sheetData && <Indicator data={sheetData} />} */}
     </Box>

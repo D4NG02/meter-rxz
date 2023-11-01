@@ -39,7 +39,7 @@ export default function Gauge() {
 
     return (
         <>
-            <svg height="20em" viewBox={[ -1, -1, 2, 2 ].join(" ")}>
+            <svg height="18em" viewBox={[ -1, -1, 2, 2 ].join(" ")}>
                 <Clock />
 
                 {/* RPM */}
