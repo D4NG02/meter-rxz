@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/meter-rxz/static/css/main.bcb13e99.css",
-    "main.js": "/meter-rxz/static/js/main.220eca3a.js",
+    "main.css": "/meter-rxz/static/css/main.f89f9558.css",
+    "main.js": "/meter-rxz/static/js/main.46406c00.js",
     "static/js/787.08412ca1.chunk.js": "/meter-rxz/static/js/787.08412ca1.chunk.js",
+    "static/media/Capture.png": "/meter-rxz/static/media/Capture.39dd536980da0752b45e.png",
     "index.html": "/meter-rxz/index.html",
-    "main.bcb13e99.css.map": "/meter-rxz/static/css/main.bcb13e99.css.map",
-    "main.220eca3a.js.map": "/meter-rxz/static/js/main.220eca3a.js.map",
+    "main.f89f9558.css.map": "/meter-rxz/static/css/main.f89f9558.css.map",
+    "main.46406c00.js.map": "/meter-rxz/static/js/main.46406c00.js.map",
     "787.08412ca1.chunk.js.map": "/meter-rxz/static/js/787.08412ca1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bcb13e99.css",
-    "static/js/main.220eca3a.js"
+    "static/css/main.f89f9558.css",
+    "static/js/main.46406c00.js"
   ]
 }
