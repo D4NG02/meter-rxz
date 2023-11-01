@@ -11,7 +11,8 @@ export default function Speed() {
     }
     function assignPosition(position) {
         if(position.coords.speed) {
-            setSpeed(position.coords.speed)
+            // got in m/s. convert to km/h
+            setSpeed(position.coords.speed *3.6)
         } else {
             setSpeed(0)
         }
