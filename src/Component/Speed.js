@@ -3,8 +3,11 @@ import React, { useState, useEffect } from 'react'
 export default function Speed() {
     const [speed, setSpeed] = useState(0);
     function getPosition(position) {
-        if(position.coords.speed) {
-            setSpeed(position.coords.speed)
+        position = position.coords
+        console.clear()
+        console.table(position)
+        if(position.speed) {
+            setSpeed(position.speed)
         } else {
             setSpeed(0)
         }
