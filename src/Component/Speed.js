@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react'
 
 export default function Speed() {
     const [speed, setSpeed] = useState(0);
+    var options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+    };
+
     function getPosition(position) {
         position = position.coords
         console.clear()
@@ -12,11 +18,14 @@ export default function Speed() {
             setSpeed(0)
         }
     }
+    function error(err) {
+      console.log(`ERROR(${err.code}): ${err.message}`);
+    }
     
     useEffect(() => {
         const interval = setInterval(() => {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(getPosition);
+                navigator.geolocation.getCurrentPosition(getPosition, error, options);
             } else {
                 console.log("Geolocation is not supported by this browser.")
             }
