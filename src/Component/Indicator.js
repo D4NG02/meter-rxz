@@ -42,5 +42,5 @@ export default function Indicator({data}) {
                     { data["data"][0]["Signal"]==="OFF" && <path d={borderArc} fill="transparent" />}
             </svg>
         </Box>
-)
+    )
 }

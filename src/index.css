@@ -1,12 +1,13 @@
 body {
   margin: 0;
-  font-family: "Oswald";
+  font-family: Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+}
+
+.App {
   background-size: contain;
   background-position: center;
-  /* background-repeat: no-repeat; */
   background-color: currentColor;
 }
 
