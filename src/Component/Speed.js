@@ -13,7 +13,8 @@ export default function Speed() {
         console.clear()
         console.table(position)
         if(position.speed) {
-            setSpeed(position.speed)
+            // got in m/s. convert to km/h
+            setSpeed(position.speed *3.6)
         } else {
             setSpeed(0)
         }
