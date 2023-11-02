@@ -1,6 +1,6 @@
 import React from "react"
 import { Box } from "@mui/material";
-import logo from "./Asset/Capture.png"
+import logo from "./Asset/background2.jpg"
 
 import Gauge from "./Component/Gauge";
 // import Indicator from "./Component/Indicator";

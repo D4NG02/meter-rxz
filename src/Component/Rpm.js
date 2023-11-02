@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { arc } from "d3-shape"
 import { scaleLinear } from "d3-scale"
 
-export default function RPM() {   
+export default function Rpm() {   
     const [randomNumber, setRandomNumber] = useState(0);
   
     const generateRandomNumber = () => {
@@ -30,20 +30,6 @@ export default function RPM() {
                                 .range([-0.98*Math.PI, 0.4*Math.PI])
                                 .clamp(true)
     const angle = angleScale(percent)
-    const niddleArc = arc()
-                            .outerRadius(0.95)
-                            .innerRadius(0.6)
-                            .startAngle(angle -0.006)
-                            .endAngle(angle +0.006)
-                            .cornerRadius(1)
-                            ()
-    const nodeArc = arc()
-                            .outerRadius(0.61)
-                            .innerRadius(0.6)
-                            .startAngle(angle -0.06)
-                            .endAngle(angle +0.06)
-                            .cornerRadius(1)
-                            ()
 
     const RpmArc = (props) => {
         const filledArc = arc()
@@ -60,14 +46,12 @@ export default function RPM() {
 
     return (
         <>
-            <RpmArc outer={0.83} inner={0.8} transparent={0.2} />
-            <RpmArc outer={0.86} inner={0.83} transparent={0.4} />
-            <RpmArc outer={0.89} inner={0.86} transparent={0.6} />
-            <RpmArc outer={0.92} inner={0.89} transparent={0.8} />
-            <RpmArc outer={0.95} inner={0.92} transparent={0.9} />
+            <RpmArc outer={0.82} inner={0.78} transparent={0.2} />
+            <RpmArc outer={0.85} inner={0.82} transparent={0.4} />
+            <RpmArc outer={0.88} inner={0.85} transparent={0.6} />
+            <RpmArc outer={0.91} inner={0.88} transparent={0.8} />
+            <RpmArc outer={0.94} inner={0.91} transparent={0.9} />
             <RpmArc outer={0.96} inner={0.94} transparent={0.4} />
-            <path d={niddleArc} fill="rgb(176, 14, 10)" />
-            <path d={nodeArc} fill="rgb(176, 14, 10)" />
         </>
     )
 }

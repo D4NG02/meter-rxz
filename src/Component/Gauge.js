@@ -3,14 +3,14 @@ import *  as d3 from 'd3'
 import { arc } from "d3-shape"
 
 import Speed from "./Speed";
-import RPM from "./RPM";
+import Rpm from "./Rpm";
 import Petrol from "./Petrol";
 import Clock from "./Clock";
 
 export default function Gauge() {
     const backgroundRPM = d3.arc()
                         .outerRadius(1)
-                        .innerRadius(0.6)
+                        .innerRadius(0.64)
                         .startAngle(0.46*Math.PI)
                         .endAngle(-1*Math.PI)
                         .cornerRadius(0)
@@ -30,8 +30,8 @@ export default function Gauge() {
          
     // Background Petrol
     const backgroundPetrolArc = arc()
-                        .outerRadius(0.48)
-                        .innerRadius(0.42)
+                        .outerRadius(0.56)
+                        .innerRadius(0.5)
                         .startAngle(1.*Math.PI)
                         .endAngle(1.5*Math.PI)
                         .cornerRadius(1)
@@ -44,7 +44,7 @@ export default function Gauge() {
 
                 {/* RPM */}
                 <path d={backgroundRPM} fill="rgba(19, 19, 19, 0.7)" />
-                <line x1="0.01" x2="0.01" y1="0.6" y2="1" stroke="rgba(19, 19, 19, 0.7)" strokeWidth="0.02" />
+                <line x1="0.01" x2="0.01" y1="0.64" y2="1" stroke="rgba(19, 19, 19, 0.7)" strokeWidth="0.02" />
                 <TickerRPM start={1.018*Math.PI} end={1.022*Math.PI} inner={0.86} color="white" /> {/* 0 */}
                 <TickerRPM start={1.076*Math.PI} end={1.08*Math.PI} inner={0.9} color="white" /> {/* 500 */}
                 <TickerRPM start={1.133*Math.PI} end={1.137*Math.PI} inner={0.86} color="white" />  {/* 1000 */}
@@ -83,14 +83,14 @@ export default function Gauge() {
                 <text style={{ transform: 'translate(16%, -30%)', fill: 'rgb(176, 14, 10)', fontSize: '0.01em' }}>10</text>
                 <text style={{ transform: 'translate(27%, -21%)', fill: 'rgb(176, 14, 10)', fontSize: '0.01em' }}>11</text>
                 <text style={{ transform: 'translate(33%, -9%)', fill: 'rgb(176, 14, 10)', fontSize: '0.01em' }}>12</text>
-                <RPM />
+                <Rpm />
                 
                 {/* Petrol */}
                 <path d={backgroundPetrolArc} fill="#5c5e5e" />
                 <Petrol />
 
                 {/* Speedo */}
-                <line x1="0.08" x2="0.84" y1="0.78" y2="0.78" stroke="rgba(176, 14, 10, 0.7)" strokeWidth="0.5" />
+                <line x1="0.08" x2="0.84" y1="0.7" y2="0.7" stroke="rgba(176, 14, 10, 0.7)" strokeWidth="0.6" />
                 <Speed />
             </svg>
         </>
