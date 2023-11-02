@@ -6,8 +6,8 @@ export default function Speed() {
 
     function getPosition(position) {
         position = position.coords
-        console.clear()
-        console.table(position)
+        // console.clear()
+        // console.table(position)
         if(position.speed) {
             // got in m/s. convert to km/h
             setSpeed( (position.speed *3.6).toFixed() )
