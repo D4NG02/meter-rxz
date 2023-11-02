@@ -2,11 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 export default function Speed() {
     const [speed, setSpeed] = useState(0);
-    var options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-    };
 
     function getPosition(position) {
         position = position.coords
@@ -14,7 +9,7 @@ export default function Speed() {
         console.table(position)
         if(position.speed) {
             // got in m/s. convert to km/h
-            setSpeed(position.speed *3.6)
+            setSpeed( (position.speed *3.6).toFixed() )
         } else {
             setSpeed(0)
         }
@@ -26,11 +21,11 @@ export default function Speed() {
     useEffect(() => {
         const interval = setInterval(() => {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(getPosition, error, options);
+                navigator.geolocation.getCurrentPosition(getPosition, error, { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 });
             } else {
                 console.log("Geolocation is not supported by this browser.")
             }
-        }, 500);
+        }, 100);
     
         return () => clearInterval(interval);
     }, [speed] ) 
