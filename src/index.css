@@ -1,12 +1,12 @@
 body {
   margin: 0;
-  font-family: Arial;
+  font-family: 'Oswald Stencil', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .App {
-  background-size: contain;
+  background-size: 100% 100%;
   background-position: center;
   background-color: currentColor;
 }

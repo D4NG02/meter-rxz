@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 export default function Speed() {
     const [speed, setSpeed] = useState(0);
+    const [KM, setKM] = useState(0);
 
     function getPosition(position) {
         position = position.coords
@@ -31,6 +32,10 @@ export default function Speed() {
     }, [speed] ) 
 
     return (
-        <text style={{ transform: 'translate(6%, 48%)', fill: 'white', fontSize: '0.03em' }}>{speed}</text>
+        <>
+            <text style={{ transform: 'translate(6%, 44%)', fill: 'white', fontSize: '0.03em' }}>{speed}</text>
+            <text style={{ transform: 'translate(6%, 44%)', fill: 'rgba(19, 19, 19, 0.5)', fontSize: '0.03em' }}>{speed}</text>
+            <text style={{ transform: 'translate(6%, 49%)', fill: 'rgba(19, 19, 19, 0.7)', fontSize: '0.005em' }}>{KM}</text>
+        </>
     )
 }

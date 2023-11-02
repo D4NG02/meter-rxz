@@ -31,10 +31,17 @@ export default function Petrol() {
                             .clamp(true)
     const angle = angleScale(percent)
     const filledArc = arc()
-                            .outerRadius(0.48)
-                            .innerRadius(0.42)
+                            .outerRadius(0.56)
+                            .innerRadius(0.5)
                             .startAngle(1*Math.PI)
                             .endAngle(angle)
+                            .cornerRadius(1)
+                            ()
+    const filledArc2 = arc()
+                            .outerRadius(0.62)
+                            .innerRadius(0.58)
+                            .startAngle(angle -0.02)
+                            .endAngle(angle +0.02)
                             .cornerRadius(1)
                             ()
         
@@ -53,7 +60,7 @@ export default function Petrol() {
                 <linearGradient
                     id={gradientTag}
                     gradientUnits="userSpaceOnUse"
-                    x1="0" y1="0.5" x2="-0.5" y2="0">
+                    x1="0.04" y1="0.52" x2="-0.52" y2="-0.04">
                     {gradientSteps.map((color, index) => (
                         <stop
                             key={color}
@@ -65,6 +72,7 @@ export default function Petrol() {
             </defs>
 
             <path d={filledArc} fill={gradientTagUse} />
+            <path d={filledArc2} fill={gradientTagUse} />
         </>
     )
 }
