@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/meter-rxz/static/css/main.f89f9558.css",
-    "main.js": "/meter-rxz/static/js/main.d21290f7.js",
+    "main.css": "/meter-rxz/static/css/main.3dcb553e.css",
+    "main.js": "/meter-rxz/static/js/main.a9e45b19.js",
     "static/js/787.08412ca1.chunk.js": "/meter-rxz/static/js/787.08412ca1.chunk.js",
-    "static/media/Capture.png": "/meter-rxz/static/media/Capture.39dd536980da0752b45e.png",
+    "static/media/background2.jpg": "/meter-rxz/static/media/background2.7c83b6e3269aeb65e915.jpg",
     "index.html": "/meter-rxz/index.html",
-    "main.f89f9558.css.map": "/meter-rxz/static/css/main.f89f9558.css.map",
-    "main.d21290f7.js.map": "/meter-rxz/static/js/main.d21290f7.js.map",
+    "main.3dcb553e.css.map": "/meter-rxz/static/css/main.3dcb553e.css.map",
+    "main.a9e45b19.js.map": "/meter-rxz/static/js/main.a9e45b19.js.map",
     "787.08412ca1.chunk.js.map": "/meter-rxz/static/js/787.08412ca1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f89f9558.css",
-    "static/js/main.d21290f7.js"
+    "static/css/main.3dcb553e.css",
+    "static/js/main.a9e45b19.js"
   ]
 }
